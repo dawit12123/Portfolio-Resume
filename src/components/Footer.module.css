@@ -1,0 +1,144 @@
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 64px 80px 36px;
+}
+
+/* ── Top row ── */
+.top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+/* ── Brand ── */
+.brand { display: flex; flex-direction: column; gap: 16px; }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logoIcon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #5b5ef6, #7c3aed);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoDot { color: var(--accent-blue, #4f7ef7); }
+
+.tagline {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #8888aa;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.socialBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: #a0a0ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.socialBtn:hover {
+  background: var(--accent-blue, #4f7ef7);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ── Nav column ── */
+.nav { display: flex; flex-direction: column; gap: 12px; }
+
+.navTitle {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.navLink {
+  font-size: 14px;
+  color: #8888aa;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+.navLink:hover { color: #fff; }
+
+/* ── Contact column ── */
+.contact { display: flex; flex-direction: column; gap: 10px; }
+
+.contactItem {
+  font-size: 13px;
+  color: #8888aa;
+  line-height: 1.5;
+}
+
+.availBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4ade80;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.availDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: blink 2s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.copy { font-size: 13px; color: #8888aa; }
+
+@media (max-width: 768px) {
+  .footer { padding: 48px 24px 28px; }
+  .top { grid-template-columns: 1fr; gap: 36px; }
+  .bottom { flex-direction: column; gap: 8px; text-align: center; }
+}

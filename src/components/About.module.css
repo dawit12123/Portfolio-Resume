@@ -1,0 +1,277 @@
+.section {
+  padding: 100px 80px;
+}
+
+/* ── Bio + skills row ── */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-blue, #4f7ef7);
+  margin-bottom: 14px;
+}
+
+.heading {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #a0a0ba;
+  margin-bottom: 16px;
+}
+
+.bio strong { color: #fff; font-weight: 600; }
+
+.highlight {
+  color: var(--accent-blue, #4f7ef7);
+  font-weight: 600;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8c8e0;
+}
+
+.availDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+  animation: blink 2s ease infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+/* ── Skills panel ── */
+.skillsPanel {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.skillsTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: -8px;
+}
+
+.skillGroup { display: flex; flex-direction: column; gap: 8px; }
+
+.skillLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent-blue, #4f7ef7);
+}
+
+.skillTags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.skillTag {
+  padding: 4px 13px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e8e8f4;
+}
+
+/* ── Journey ── */
+.journey {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.journeyTitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 36px;
+  letter-spacing: -0.3px;
+}
+
+/* ── Phase block ── */
+.phase {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.phaseLabel { display: flex; flex-direction: column; gap: 14px; }
+
+.phaseBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1px solid;
+  font-size: 12px;
+  font-weight: 700;
+  width: fit-content;
+  letter-spacing: 0.2px;
+}
+
+.phaseDesc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #8888aa;
+}
+
+/* ── Project cards in phase ── */
+.phaseProjects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.phaseProjects3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.projectRole {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-blue, #4f7ef7);
+  margin-bottom: 4px;
+  letter-spacing: 0.2px;
+}
+
+.projectCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.projectCard:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.projectCardCurrent {
+  border-color: rgba(79,126,247,0.3);
+  background: rgba(79,126,247,0.05);
+}
+
+.projectCardCurrent:hover {
+  border-color: rgba(79,126,247,0.5);
+  background: rgba(79,126,247,0.08);
+}
+
+.projectIcon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.projectNameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.projectName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.projectDesc {
+  font-size: 12px;
+  color: #8888aa;
+  line-height: 1.55;
+}
+
+.currentTag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 9px;
+  background: rgba(79,126,247,0.15);
+  border: 1px solid rgba(79,126,247,0.35);
+  border-radius: 100px;
+  color: #7fa5f9;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* ── Transition divider ── */
+.transition {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.transitionLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(79,126,247,0.4), transparent);
+}
+
+.transitionLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-blue, #4f7ef7);
+  white-space: nowrap;
+  padding: 6px 16px;
+  border: 1px solid rgba(79,126,247,0.3);
+  border-radius: 100px;
+  background: rgba(79,126,247,0.08);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .phase { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 60px 24px; }
+  .header { grid-template-columns: 1fr; gap: 40px; }
+  .heading { font-size: 30px; }
+  .phaseProjects, .phaseProjects3 { grid-template-columns: 1fr; }
+  .transition { flex-direction: column; gap: 10px; }
+  .transitionLine { width: 60px; height: 40px; background: none; border-left: 1px dashed rgba(79,126,247,0.4); }
+}
