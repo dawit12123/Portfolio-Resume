@@ -13,14 +13,13 @@ const sectionIds = ['hero', 'about', 'services', 'portfolio', 'contact'];
 
 export default function Navbar() {
   const [active, setActive] = useState('hero');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
-
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       const observer = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActive(id); },
         { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
@@ -28,12 +27,19 @@ export default function Navbar() {
       observer.observe(el);
       observers.push(observer);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = () => setMenuOpen(false);
+    window.addEventListener('scroll', close, { passive: true });
+    return () => window.removeEventListener('scroll', close);
+  }, [menuOpen]);
+
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setMenuOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -69,6 +75,42 @@ export default function Navbar() {
       <a href="#contact" className={styles.cta} onClick={(e) => scrollTo(e, '#contact')}>
         Hire Me
       </a>
+
+      <button
+        className={styles.hamburger}
+        onClick={() => setMenuOpen((o) => !o)}
+        aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+      >
+        <span className={`${styles.bar} ${menuOpen ? styles.bar1Open : ''}`} />
+        <span className={`${styles.bar} ${menuOpen ? styles.bar2Open : ''}`} />
+        <span className={`${styles.bar} ${menuOpen ? styles.bar3Open : ''}`} />
+      </button>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {links.map((link) => {
+            const id = link.href.slice(1);
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`${styles.mobileLink} ${active === id ? styles.mobileLinkActive : ''}`}
+                onClick={(e) => scrollTo(e, link.href)}
+              >
+                {link.label}
+              </a>
+            );
+          })}
+          <a
+            href="#contact"
+            className={styles.mobileCta}
+            onClick={(e) => scrollTo(e, '#contact')}
+          >
+            Hire Me ↗
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

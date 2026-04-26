@@ -91,7 +91,7 @@
   align-items: center;
   gap: 6px;
   padding: 13px 30px;
-  background: var(--accent-blue, #4f7ef7);
+  background: #1d4ed8;
   border-radius: 10px;
   color: #fff;
   font-size: 15px;
@@ -100,7 +100,7 @@
   transition: background 0.25s, transform 0.25s;
 }
 
-.btnPrimary:hover { background: #3b6de8; transform: translateY(-2px); }
+.btnPrimary:hover { background: #1a44c0; transform: translateY(-2px); }
 
 .btnSecondary {
   display: inline-flex;
@@ -183,8 +183,17 @@
 }
 
 @media (max-width: 900px) {
-  .hero { flex-direction: column; padding: 60px 24px 40px; min-height: auto; }
+  .hero { flex-direction: column; padding: 60px 24px 40px; min-height: auto; gap: 32px; }
+  .content { max-width: 100%; }
   .heading { font-size: 40px; }
   .card { width: 260px; height: 320px; }
   .decoZigzag, .decoCircle, .decoPlay, .decoPlus { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 48px 20px 36px; }
+  .heading { font-size: 34px; letter-spacing: -1px; }
+  .subtext { font-size: 14px; }
+  .card { width: 220px; height: 275px; }
+  .badge { font-size: 12px; padding: 6px 14px; }
 }

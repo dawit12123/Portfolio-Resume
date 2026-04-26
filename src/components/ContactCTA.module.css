@@ -47,7 +47,7 @@
 .btn {
   flex-shrink: 0;
   padding: 15px 38px;
-  background: var(--accent-blue, #4f7ef7);
+  background: #1d4ed8;
   border-radius: 10px;
   color: #fff;
   font-size: 15px;
@@ -57,7 +57,7 @@
 }
 
 .btn:hover {
-  background: #3b6de8;
+  background: #1a44c0;
   transform: translateY(-2px);
 }
 

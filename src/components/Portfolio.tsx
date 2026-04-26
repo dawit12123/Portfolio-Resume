@@ -3,7 +3,6 @@ import { useInView } from '../hooks/useInView';
 import styles from './Portfolio.module.css';
 
 const GAP = 22;
-const VISIBLE = 3;
 
 interface Project {
   id: number;
@@ -75,21 +74,29 @@ const projects: Project[] = [
 export default function Portfolio() {
   const [active, setActive] = useState(0);
   const [cardW, setCardW] = useState(0);
+  const [visible, setVisible] = useState(3);
   const wrapRef = useRef<HTMLDivElement>(null);
   const { ref, inView } = useInView(0.1);
 
-  const maxActive = projects.length - VISIBLE;
+  const maxActive = Math.max(0, projects.length - visible);
 
   useEffect(() => {
     const update = () => {
+      const w = window.innerWidth;
+      const v = w < 640 ? 1 : w < 1024 ? 2 : 3;
+      setVisible(v);
       if (wrapRef.current) {
-        setCardW((wrapRef.current.offsetWidth - (VISIBLE - 1) * GAP) / VISIBLE);
+        setCardW((wrapRef.current.offsetWidth - (v - 1) * GAP) / v);
       }
     };
     update();
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
+
+  useEffect(() => {
+    setActive((a) => Math.min(a, maxActive));
+  }, [maxActive]);
 
   const prev = () => setActive((a) => Math.max(0, a - 1));
   const next = () => setActive((a) => Math.min(maxActive, a + 1));
