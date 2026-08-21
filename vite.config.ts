@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    allowedHosts: ["portfolio-resume-7clm.onrender.com","dawit.girma.onrender.com"]
+    allowedHosts: ["portfolio-resume-7clm.onrender.com","dawit-girma.onrender.com"]
   }
 })
